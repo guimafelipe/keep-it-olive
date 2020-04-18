@@ -61,6 +61,7 @@ func hit():
 		tree.stop_firing()
 	tree.set_targeted(false)
 	# do hit animation
+	$FiringTimer.stop()
 	fleet()
 
 func _on_Enemy_body_entered(body):
