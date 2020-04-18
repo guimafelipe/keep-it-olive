@@ -66,6 +66,7 @@ func hit():
 func _on_Enemy_body_entered(body):
 	if body is RockClass:
 		hit()
+		body.destroy()
 
 func _on_FleetingTimer_timeout():
 	queue_free()

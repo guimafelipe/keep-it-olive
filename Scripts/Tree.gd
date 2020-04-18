@@ -12,6 +12,11 @@ func firing():
 	state = states.FIRING
 	# do firing animation
 
+func stop_firing():
+	if state == states.FIRING:
+		# change to idle mesh
+		state = states.IDLE
+
 func on_fire():
 	state = states.ON_FIRE
 	# do on fire animation

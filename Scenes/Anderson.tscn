@@ -6,6 +6,8 @@
 radius = 0.5
 
 [node name="Anderson" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 
 [node name="Body" type="CollisionShape" parent="."]
