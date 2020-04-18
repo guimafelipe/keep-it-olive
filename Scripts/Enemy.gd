@@ -1,13 +1,16 @@
 extends Area
 
+var RockClass = preload("res://Scripts/Rock.gd")
+
 var tree
-var min_dist_to_tree = 3
+var min_dist_to_tree = 6
 
 var approach_speed = 3
 var flee_speed = 9
 var dir = Vector3()
 
 enum states {APPROACHING, FIRING, FLEETING}
+var state
 
 func search_for_tree():
 	var trees = get_parent().get_node("Trees").get_children()
@@ -15,8 +18,8 @@ func search_for_tree():
 	var best_dist = INF
 	
 	for tree in trees:
-		if tree.state == tree.states.IDLE:
-			var dist = global_transform.origin.distance_to(tree.global_transform.origin)
+		if tree.state == tree.states.IDLE and not tree.is_targeted:
+			var dist = get_dist_to_tree(tree)
 			if dist < best_dist:
 				best_dist = dist
 				chosen_tree = tree
@@ -27,6 +30,8 @@ func search_for_tree():
 		return
 	
 	self.tree = chosen_tree
+	self.tree.set_targeted(true)
+	define_movement()
 
 func define_movement():
 	dir = tree.global_transform.origin - global_transform.origin
@@ -36,11 +41,52 @@ func define_movement():
 
 func init():
 	search_for_tree()
-	define_movement()
+	state = states.APPROACHING
 	print("Nasci")
 
+# warning-ignore:shadowed_variable
+func get_dist_to_tree(tree):
+	return global_transform.origin.distance_to(tree.global_transform.origin)
+
+func _on_FiringTimer_timeout():
+	tree.on_fire()
+	fleet()
+
+func fleet():
+	state = states.FLEETING
+	$FleetingTimer.start()
+
+func hit():
+	if state == states.FIRING:
+		tree.stop_firing()
+	tree.set_targeted(false)
+	# do hit animation
+	fleet()
+
+func _on_Enemy_body_entered(body):
+	if body is RockClass:
+		hit()
+
+func _on_FleetingTimer_timeout():
+	queue_free()
+
 func _physics_process(delta):
-	self.translate(dir*approach_speed*delta)
+	match state:
+		states.APPROACHING:
+			self.translate(dir*approach_speed*delta)
+			if get_dist_to_tree(tree) <= min_dist_to_tree:
+				state = states.FIRING
+				# do firing animation
+				# do firing animation on tree
+				tree.firing()
+				$FiringTimer.start()
+				
+		states.FIRING:
+			pass
+		states.FLEETING:
+			self.translate(-dir*flee_speed*delta)
 
 func _ready():
 	pass
+
+

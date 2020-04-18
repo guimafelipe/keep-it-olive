@@ -17,3 +17,13 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="FiringTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="FleetingTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+[connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
+[connection signal="timeout" from="FiringTimer" to="." method="_on_FiringTimer_timeout"]
+[connection signal="timeout" from="FleetingTimer" to="." method="_on_FleetingTimer_timeout"]
