@@ -1,17 +1,76 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Tree.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Anderson.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GameManager.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
+
+[node name="GameManager" parent="." instance=ExtResource( 6 )]
 
 [node name="Anderson" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 
-[node name="Tree" parent="." instance=ExtResource( 3 )]
+[node name="Trees" type="Spatial" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -10 )
+
+[node name="Tree2" parent="Trees" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0256, 2, 2.65573 )
+
+[node name="Tree3" parent="Trees" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12452, 2, -5.92619 )
+
+[node name="Tree4" parent="Trees" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6739, 2, 5.10386 )
+
+[node name="Spawners" type="Spatial" parent="."]
+
+[node name="EnemySpawner" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64302, 4.76837e-07, -12.5867 )
+
+[node name="EnemySpawner2" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.735, 4.76837e-07, -17.5268 )
+
+[node name="EnemySpawner3" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8664, 2.38419e-06, 6.25189 )
+
+[node name="EnemySpawner4" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9972, 2.38419e-06, 14.3008 )
+
+[node name="EnemySpawner5" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8134, 4.29153e-06, 8.76126 )
+
+[node name="EnemySpawner6" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8417, 4.29153e-06, 0.172159 )
+
+[node name="EnemySpawner7" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.695, 4.29153e-06, -7.53246 )
+
+[node name="EnemySpawner8" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8179, 4.29153e-06, -19.8654 )
+
+[node name="EnemySpawner9" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9371, 4.29153e-06, -29.8859 )
+
+[node name="EnemySpawner10" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82028, 4.29153e-06, -31.0694 )
+
+[node name="EnemySpawner11" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69452, 4.29153e-06, -30.0518 )
+
+[node name="EnemySpawner12" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6734, 4.29153e-06, -25.8731 )
+
+[node name="EnemySpawner13" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3484, 4.29153e-06, -14.7028 )
+
+[node name="EnemySpawner14" parent="Spawners" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3484, 4.29153e-06, -14.7028 )
