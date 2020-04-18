@@ -15,16 +15,18 @@ func init(normal):
 	set_linear_velocity(throw_impulse*forward_dir)
 	set_physics_process(true)
 
-
-func _on_Rock_body_entered(body):
+func _on_WaterDrop_body_entered(_body):
 	destroy()
 
 func _physics_process(delta):
 	timer += delta
+	#look_at(linear_velocity, Vector3.RIGHT)
 	if timer >= KILL_TIME:
 		queue_free()
 
 func _ready():
+	# axis_lock_angular_z = true
 	set_contact_monitor(true)
 	set_max_contacts_reported(1)
+
 

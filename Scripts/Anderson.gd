@@ -10,6 +10,7 @@ var velocity = Vector3()
 
 # shot variables
 var bullet = preload("res://Scenes/Rock.tscn")
+var water = preload("res://Scenes/WaterDrop.tscn")
 var shoot_range = 1000
 var camera_width_center = 0
 var camera_height_center = 0
@@ -37,13 +38,26 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 func shoot_rock():
-	shoot_origin = camera.project_ray_origin(Vector2(camera_width_center, camera_height_center))
+	shoot_origin = camera.project_position(Vector2(camera_width_center, 2*camera_height_center), 1)
 	shoot_normal = camera.project_ray_normal(Vector2(camera_width_center, camera_height_center)) * shoot_range
 	var clone = bullet.instance()
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(clone)
-	clone.global_transform = $Pivot/Camera.global_transform
-	clone.init()
+	clone.global_transform.origin = shoot_origin
+	print(camera.global_transform.origin)
+	print(shoot_origin)
+	clone.init(shoot_normal)
+
+
+func shoot_water():
+	shoot_origin = camera.project_position(Vector2(camera_width_center, 2*camera_height_center), 1)
+	shoot_normal = camera.project_ray_normal(Vector2(camera_width_center, camera_height_center)) * shoot_range
+	var clone = water.instance()
+	var scene_root = get_tree().root.get_children()[0]
+	scene_root.add_child(clone)
+	clone.global_transform = camera.global_transform
+	clone.global_transform.origin = shoot_origin
+	clone.init(shoot_normal)
 
 func _physics_process(_delta):
 	var desired_velocity = get_input() * max_speed
@@ -52,7 +66,11 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 	if Input.is_action_just_pressed("shoot"):
 		shoot_rock()
-
+	elif Input.is_action_pressed("water"):
+		shoot_water()
+		pass
+		
 func _ready():
 	camera_width_center = OS.get_window_size().x / 2
 	camera_height_center = OS.get_window_size().y / 2
+	print(camera_width_center," ", camera_height_center)
