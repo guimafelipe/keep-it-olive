@@ -5,6 +5,7 @@ onready var camera = $Pivot/Camera
 # movement variables
 var max_speed = 8
 var mouse_sensitivity = 0.002 # radians/pixel
+const gravity = 10
 
 var velocity = Vector3()
 
@@ -57,11 +58,13 @@ func shoot_water():
 	clone.global_transform.origin = shoot_origin
 	clone.init(shoot_normal)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var desired_velocity = get_input() * max_speed
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
-	velocity = move_and_slide(velocity, Vector3.UP, true)
+	#velocity.y -= gravity*delta
+	#velocity = move_and_slide(velocity, Vector3.UP, true, 4, PI/8)
+	move_and_collide(velocity*delta)
 	if Input.is_action_just_pressed("shoot"):
 		shoot_rock()
 	elif Input.is_action_pressed("water"):

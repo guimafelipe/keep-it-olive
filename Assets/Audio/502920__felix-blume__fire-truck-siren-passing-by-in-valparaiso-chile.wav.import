@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/502920__felix-blume__fire-truck-siren-passing-by-in-valparaiso-chile.wav-9ca138a1c1273ce4dafbe45bd8197d44.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/502920__felix-blume__fire-truck-siren-passing-by-in-valparaiso-chile.wav"
+dest_files=[ "res://.import/502920__felix-blume__fire-truck-siren-passing-by-in-valparaiso-chile.wav-9ca138a1c1273ce4dafbe45bd8197d44.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

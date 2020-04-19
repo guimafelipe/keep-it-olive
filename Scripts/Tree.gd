@@ -38,10 +38,12 @@ func successful_watering():
 		change_color(Color(0, 1, 0))
 		is_targeted = false
 		emit_signal("exit_fire")
+		$Fire.set_emitting(false)
 
 func on_fire():
 	state = states.ON_FIRE
 	# do on fire animation
+	$Fire.set_emitting(true)
 	$FireTimer.start()
 	water_level = 0
 	change_color(Color(1, 0, 0))
@@ -52,6 +54,10 @@ func die():
 	# change to dead tree mesh
 	emit_signal("died")
 	change_color(Color(0, 0, 0))
+	$Tree.set_visible(false)
+	$BurntTree2.set_visible(true)
+	$Fire.set_emitting(false)
+	$Smoke.set_emitting(true)
 
 func take_water():
 	if state == states.ON_FIRE:
