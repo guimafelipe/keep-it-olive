@@ -3,6 +3,8 @@ extends Spatial
 enum states {IDLE, FIRING, ON_FIRE, WATERING, DEAD}
 var state
 signal died
+signal on_fire
+signal exit_fire
 var is_targeted = false
 
 var water_level = 0
@@ -35,7 +37,7 @@ func successful_watering():
 		$WaterTimer.stop()
 		change_color(Color(0, 1, 0))
 		is_targeted = false
-
+		emit_signal("exit_fire")
 
 func on_fire():
 	state = states.ON_FIRE
@@ -43,6 +45,7 @@ func on_fire():
 	$FireTimer.start()
 	water_level = 0
 	change_color(Color(1, 0, 0))
+	emit_signal("on_fire")
 
 func die():
 	state = states.DEAD

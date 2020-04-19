@@ -44,8 +44,6 @@ func shoot_rock():
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(clone)
 	clone.global_transform.origin = shoot_origin
-	print(camera.global_transform.origin)
-	print(shoot_origin)
 	clone.init(shoot_normal)
 
 
@@ -73,4 +71,4 @@ func _physics_process(_delta):
 func _ready():
 	camera_width_center = OS.get_window_size().x / 2
 	camera_height_center = OS.get_window_size().y / 2
-	print(camera_width_center," ", camera_height_center)
+	#print(camera_width_center," ", camera_height_center)
