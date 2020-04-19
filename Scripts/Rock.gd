@@ -16,7 +16,7 @@ func init(normal):
 	set_physics_process(true)
 
 
-func _on_Rock_body_entered(body):
+func _on_Rock_body_entered(_body):
 	destroy()
 
 func _physics_process(delta):

@@ -68,13 +68,24 @@ size_flags_vertical = 2
 dragger_visibility = 2
 
 [node name="Bottom" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 600.0
+margin_top = 586.0
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 alignment = 1
 
+[node name="Points" type="Label" parent="VBoxContainer/Bottom"]
+margin_left = 508.0
+margin_right = 508.0
+margin_bottom = 14.0
+
 [node name="WateringBar" type="TextureRect" parent="VBoxContainer/Bottom"]
 margin_left = 512.0
 margin_right = 512.0
+margin_bottom = 14.0
 mouse_filter = 2
+
+[node name="Difficulty" type="Label" parent="VBoxContainer/Bottom"]
+margin_left = 516.0
+margin_right = 516.0
+margin_bottom = 14.0
