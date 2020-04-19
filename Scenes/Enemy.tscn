@@ -20,6 +20,7 @@ material/0 = null
 
 [node name="FiringTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [node name="FleetingTimer" type="Timer" parent="."]
 wait_time = 8.0

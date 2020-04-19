@@ -19,5 +19,3 @@ func _ready():
 	spawners = main_terrain.get_node("Spawners").get_children()
 	$SpawnTimer.wait_time = 4
 	$SpawnTimer.start()
-
-

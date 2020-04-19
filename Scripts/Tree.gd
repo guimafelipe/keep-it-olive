@@ -6,13 +6,15 @@ signal died
 var is_targeted = false
 
 var water_level = 0
-const WATER_NEEDED = 16
+const WATER_NEEDED = 160
+var water_delay
+var water_cd = 3
 
 func set_targeted(val):
 	is_targeted = val
 
 func change_color(color):
-	$StaticBody/MeshInstance.get_surface_material(0).set_shader_param("albedo", color)
+	$MeshInstance.get_surface_material(0).set_shader_param("albedo", color)
 
 func firing():
 	state = states.FIRING
@@ -26,10 +28,20 @@ func stop_firing():
 		$FireTimer.stop()
 		change_color(Color(0, 1, 0))
 
+func successful_watering():
+	if state == states.WATERING:
+		# change to idle mesh
+		state = states.IDLE
+		$WaterTimer.stop()
+		change_color(Color(0, 1, 0))
+		is_targeted = false
+
+
 func on_fire():
 	state = states.ON_FIRE
 	# do on fire animation
 	$FireTimer.start()
+	water_level = 0
 	change_color(Color(1, 0, 0))
 
 func die():
@@ -38,10 +50,32 @@ func die():
 	emit_signal("died")
 	change_color(Color(0, 0, 0))
 
+func take_water():
+	if state == states.ON_FIRE:
+		start_watering()
+	elif state != states.WATERING:
+		return
+	water_level += 1
+	if water_level >= WATER_NEEDED:
+		successful_watering()
+		return
+	$WaterTimer.start()
+
+func start_watering():
+	state = states.WATERING
+	change_color(Color(0, 0, 1))
+	water_level = 0
+	$FireTimer.stop()
+	$WaterTimer.start()
+
+func _on_WaterTimer_timeout():
+	on_fire()
+
 func _on_FireTimer_timeout():
 	die()
 
 func _ready():
 	state = states.IDLE
-	var mat = $StaticBody/MeshInstance.get_surface_material(0).duplicate()
-	$StaticBody/MeshInstance.set_surface_material(0, mat)
+	var mat = $MeshInstance.get_surface_material(0).duplicate()
+	$MeshInstance.set_surface_material(0, mat)
+
