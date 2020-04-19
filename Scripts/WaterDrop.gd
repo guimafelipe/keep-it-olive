@@ -1,6 +1,6 @@
 extends RigidBody
 
-const KILL_TIME = 4 # time for bullet vanish
+const KILL_TIME = 2 # time for bullet vanish
 var timer = 0
 
 var TreeClass = preload("res://Scripts/Tree.gd")
