@@ -82,7 +82,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9038, 2, -18.2851 )
 [node name="Spawners" type="Spatial" parent="."]
 
 [node name="EnemySpawner" parent="Spawners" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0095, 4.76837e-07, -15.3548 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.009, 0, -15.355 )
 
 [node name="EnemySpawner2" parent="Spawners" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.7633, -3.33786e-06, -32.0949 )
