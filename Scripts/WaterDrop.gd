@@ -7,9 +7,20 @@ var TreeClass = preload("res://Scripts/Tree.gd")
 
 var hit_something = false
 var throw_impulse = 20.0
+var destroyed = false
 
 func destroy():
-	# spawn particles?
+	if destroyed:
+		return
+	destroyed = true
+	var particles = $WaterParticles
+	self.remove_child(particles)
+	get_parent().add_child(particles)
+	particles.transform = transform.basis
+	particles.transform.origin = transform.origin
+	particles.set_scale(Vector3(0.1,0.1,0.1))
+	particles.set_direction(-get_linear_velocity().normalized())
+	particles.set_emitting(true)
 	queue_free()
 
 func init(normal):

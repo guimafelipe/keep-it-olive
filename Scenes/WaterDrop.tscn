@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/WaterDrop.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Meshes/WaterDrop.tres" type="CylinderMesh" id=2]
+[ext_resource path="res://Resources/Materials/WaterDrop.tres" type="Material" id=3]
 
 [sub_resource type="SphereShape" id=1]
 
-[sub_resource type="CylinderMesh" id=2]
+[sub_resource type="SphereMesh" id=2]
 
 [node name="WaterDrop" type="RigidBody"]
 collision_layer = 4
@@ -16,6 +18,24 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, -0.000671958, -0.0999977, 0, 0.0999977, -0.000671958, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="WaterParticles" type="CPUParticles" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+material_override = ExtResource( 3 )
+emitting = false
+amount = 4
+lifetime = 0.38
+one_shot = true
+explosiveness = 1.0
+local_coords = false
 mesh = SubResource( 2 )
-material/0 = null
+direction = Vector3( 0, 1, 0 )
+spread = 60.0
+initial_velocity = 35.0
+initial_velocity_random = 0.44
+angular_velocity = 50.0
+angle_random = 1.0
+scale_amount = 0.1
 [connection signal="body_entered" from="." to="." method="_on_WaterDrop_body_entered"]

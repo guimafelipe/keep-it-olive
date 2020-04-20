@@ -5,9 +5,14 @@ var timer = 0
 
 var hit_something = false
 var throw_impulse = 20.0
+var destroyed = false
+
 
 func destroy():
 	# spawn particles?
+	if destroyed:
+		return
+	destroyed = true
 	var particles = $RockParticles
 	self.remove_child(particles)
 	get_parent().add_child(particles)
