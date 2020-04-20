@@ -8,13 +8,20 @@ var throw_impulse = 20.0
 
 func destroy():
 	# spawn particles?
+	var particles = $RockParticles
+	self.remove_child(particles)
+	get_parent().add_child(particles)
+	particles.transform = transform.basis
+	particles.transform.origin = transform.origin
+	particles.set_scale(Vector3(0.4,0.4,0.4))
+	particles.set_direction(-get_linear_velocity().normalized())
+	particles.set_emitting(true)
 	queue_free()
 
 func init(normal):
 	var forward_dir = normal.normalized() # -global_transform.basis.z.normalized()
 	set_linear_velocity(throw_impulse*forward_dir)
 	set_physics_process(true)
-
 
 func _on_Rock_body_entered(_body):
 	destroy()

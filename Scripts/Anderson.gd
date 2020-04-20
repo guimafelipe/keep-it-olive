@@ -42,7 +42,7 @@ func shoot_rock():
 	shoot_origin = camera.project_position(Vector2(camera_width_center, 2*camera_height_center), 1)
 	shoot_normal = camera.project_ray_normal(Vector2(camera_width_center, camera_height_center)) * shoot_range
 	var clone = bullet.instance()
-	var scene_root = get_tree().root.get_children()[0]
+	var scene_root = get_tree().root.get_node("Main")
 	scene_root.add_child(clone)
 	clone.global_transform.origin = shoot_origin
 	clone.init(shoot_normal)
@@ -52,7 +52,7 @@ func shoot_water():
 	shoot_origin = camera.project_position(Vector2(camera_width_center, 2*camera_height_center), 1)
 	shoot_normal = camera.project_ray_normal(Vector2(camera_width_center, camera_height_center)) * shoot_range
 	var clone = water.instance()
-	var scene_root = get_tree().root.get_children()[0]
+	var scene_root = get_tree().root.get_node("Main")
 	scene_root.add_child(clone)
 	clone.global_transform = camera.global_transform
 	clone.global_transform.origin = shoot_origin
