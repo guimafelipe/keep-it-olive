@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=1]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -122,3 +124,45 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77602, 4.29153e-06, 48.3553
 
 [node name="EnemySpawner14" parent="Spawners" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.8301, 4.29153e-06, 21.7966 )
+
+[node name="Walls" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="Walls"]
+transform = Transform( 50.9257, 0, 0, 0, 11.2563, 0, 0, 0, 1, 0, 0, 28.5431 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Walls/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2" type="StaticBody" parent="Walls"]
+transform = Transform( 32.0155, 0, 0, 0, 11.2563, 0, 0, 0, 1, -6.96997, 0, -33.9645 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Walls/StaticBody2"]
+shape = SubResource( 1 )
+
+[node name="StaticBody3" type="StaticBody" parent="Walls"]
+transform = Transform( 3.21091, 0, 0.994958, 0, 11.2563, 0, -31.8541, 0, 0.100292, -36.044, 0, -2.80526 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Walls/StaticBody3"]
+shape = SubResource( 1 )
+
+[node name="StaticBody4" type="StaticBody" parent="Walls"]
+transform = Transform( -8.70375, 0, 0.962337, 0, 11.2563, 0, -30.8097, 0, -0.27186, 40.4436, 0, -1.48689 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Walls/StaticBody4"]
+shape = SubResource( 1 )
+
+[node name="StaticBody5" type="StaticBody" parent="Walls"]
+transform = Transform( -25.1073, 0, 0.620477, 0, 11.2563, 0, -19.8649, 0, -0.784224, 33.2232, 0, -21.0775 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Walls/StaticBody5"]
+shape = SubResource( 1 )
