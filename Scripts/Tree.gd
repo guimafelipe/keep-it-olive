@@ -5,6 +5,7 @@ var state
 signal died
 signal on_fire
 signal exit_fire
+signal water_level(level, max_level)
 var is_targeted = false
 
 var water_level = 0
@@ -66,6 +67,7 @@ func take_water():
 	elif state != states.WATERING:
 		return
 	water_level += 1
+	emit_signal("water_level", water_level, WATER_NEEDED)
 	if water_level >= WATER_NEEDED:
 		successful_watering()
 		return

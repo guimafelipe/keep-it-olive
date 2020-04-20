@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Themes/theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Images/water_front.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/water_back.png" type="Texture" id=4]
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
@@ -34,15 +36,15 @@ mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="TreesOnFire" type="Label" parent="VBoxContainer/Up"]
-margin_right = 25.0
+margin_right = 27.0
 margin_bottom = 348.0
 size_flags_vertical = 1
 text = "0
 "
 
 [node name="TreeOnFirePic" type="TextureRect" parent="VBoxContainer/Up"]
-margin_left = 29.0
-margin_right = 29.0
+margin_left = 31.0
+margin_right = 31.0
 margin_bottom = 348.0
 mouse_filter = 2
 __meta__ = {
@@ -50,7 +52,7 @@ __meta__ = {
 }
 
 [node name="DeadTrees" type="Label" parent="VBoxContainer/Up"]
-margin_left = 33.0
+margin_left = 35.0
 margin_right = 1260.0
 margin_bottom = 348.0
 size_flags_horizontal = 3
@@ -79,7 +81,7 @@ __meta__ = {
 }
 
 [node name="Points" type="Label" parent="VBoxContainer/Bottom"]
-margin_right = 417.0
+margin_right = 628.0
 margin_bottom = 348.0
 grow_horizontal = 0
 size_flags_horizontal = 3
@@ -88,14 +90,23 @@ text = "0"
 valign = 2
 
 [node name="WateringBar" type="TextureProgress" parent="VBoxContainer/Bottom"]
-margin_left = 421.0
-margin_right = 838.0
+visible = false
+margin_left = 330.0
+margin_top = 277.0
+margin_right = 930.0
 margin_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 300, 35 )
 mouse_filter = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 8
+value = 50.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
 
 [node name="Difficulty" type="Label" parent="VBoxContainer/Bottom"]
-margin_left = 842.0
+margin_left = 632.0
 margin_right = 1260.0
 margin_bottom = 348.0
 size_flags_horizontal = 3
@@ -103,3 +114,7 @@ size_flags_vertical = 1
 text = "0"
 align = 2
 valign = 2
+
+[node name="WaterTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="WaterTimer" to="." method="_on_WaterTimer_timeout"]

@@ -60,10 +60,13 @@ func _ready():
 	spawners = main_terrain.get_node("Spawners").get_children()
 	$SpawnTimer.wait_time = GameData.first_spawn_time
 	$SpawnTimer.start()
+	var gui = get_parent().get_node("GUI")
+	assert(gui)
 	for tree in trees:
 		tree.connect("died", self, "on_Tree_Died")
 		tree.connect("on_fire", self, "on_Tree_on_Fire")
 		tree.connect("exit_fire", self, "on_Tree_Exit_Fire")
+		tree.connect("water_level", gui, "update_water_bar")
 	emit_signal("dead_trees", dead_trees, MAX_DEAD_TREES)
 	emit_signal("trees_on_fire", trees_on_fire)
 	emit_signal("updated_points", points, difficulty)
