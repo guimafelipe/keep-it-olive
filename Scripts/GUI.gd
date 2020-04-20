@@ -1,6 +1,6 @@
 extends Control
 
-onready var dead_tree_counter = $VBoxContainer/Up/DeadTrees
+onready var dead_tree_counter = $VBoxContainer/Up/DeadTrees/DeadTrees
 onready var on_fire_trees_counter = $VBoxContainer/Up/TreesOFireContainer/TreesOnFire
 onready var points_counter = $VBoxContainer/Bottom/Points
 onready var difficulty_meter = $VBoxContainer/Bottom/Difficulty

@@ -43,9 +43,9 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 289.0
+margin_top = 288.0
 margin_right = 100.0
-margin_bottom = 331.0
+margin_bottom = 332.0
 rect_min_size = Vector2( 100, 40 )
 theme = ExtResource( 3 )
 text = "Play"
