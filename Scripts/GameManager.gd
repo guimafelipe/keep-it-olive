@@ -5,7 +5,7 @@ var trees
 var spawners
 var dead_trees = 0
 var trees_on_fire = 0
-const MAX_DEAD_TREES = 15
+var MAX_DEAD_TREES = 15
 signal dead_trees(val, lim)
 signal trees_on_fire(val)
 signal updated_points(pts, dif)
@@ -28,7 +28,8 @@ func _on_SpawnTimer_timeout():
 
 func end_game():
 	GlobalAudioManager.get_node("BackgroudMusic").stop()
-	get_tree().change_scene("res://Scenes/Menu.tscn")
+	GameData.update_record()
+	get_tree().change_scene("res://Scenes/GameOverMenu.tscn")
 
 func on_Tree_Died():
 	dead_trees += 1
@@ -57,12 +58,14 @@ func _process(delta):
 		emit_signal("updated_points", points, difficulty)
 	
 func _ready():
+	MAX_DEAD_TREES = GameData.max_burnt_trees
 	trees = main_terrain.get_node("Trees").get_children()
 	spawners = main_terrain.get_node("Spawners").get_children()
 	$SpawnTimer.wait_time = GameData.first_spawn_time
 	$SpawnTimer.start()
 	var gui = get_parent().get_node("GUI")
 	assert(gui)
+	self.connect("updated_points", GameData, "_on_Points_Updated")
 	for tree in trees:
 		tree.connect("died", self, "on_Tree_Died")
 		tree.connect("on_fire", self, "on_Tree_on_Fire")

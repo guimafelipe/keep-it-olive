@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Images/MenuRender.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Themes/theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/GameOverMenu.gd" type="Script" id=3]
+
+[node name="GameOverMenu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 592.0
+margin_top = 312.0
+margin_right = 688.0
+margin_bottom = 408.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 44.0
+text = "Oiii"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 92.0
+text = "Menu"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 96.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "You scored 167 points.
+ Congratulations and parabéns."
+scroll_active = false
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

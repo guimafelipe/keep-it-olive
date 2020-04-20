@@ -6,4 +6,6 @@ func _on_Play_pressed():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	GlobalAudioManager.get_node("MenuMusic").play()
+	if not GlobalAudioManager.get_node("MenuMusic").playing:
+		GlobalAudioManager.get_node("MenuMusic").play()
+	
