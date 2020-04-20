@@ -14,7 +14,7 @@ var state
 
 func search_for_tree():
 	var trees = get_parent().get_node("Trees").get_children()
-	var chosen_tree
+	var chosen_tree = null
 	var best_dist = INF
 	
 	for tree in trees:
@@ -43,6 +43,8 @@ func init():
 	search_for_tree()
 	state = states.APPROACHING
 	$MeshHandler/Enemy/AnimationPlayer.play("default")
+	if not tree:
+		queue_free()
 	var tree_pos = tree.global_transform.origin
 	tree_pos.y = global_transform.origin.y
 	look_at(tree_pos, Vector3.UP)

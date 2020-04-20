@@ -18,7 +18,7 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, -0.000671958, -0.0999977, 0, 0.0999977, -0.000671958, 0, 0, 0 )
+transform = Transform( 0.1, 0, 0, 0, -1.62921e-08, -0.1, 0, 0.1, -1.62921e-08, 0, 0, 0 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 
