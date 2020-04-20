@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pedra cortado.wav-7fbbc68cc59cd25c70c1e56a9ce1ac29.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/audios cortados/pedra cortado.wav"
+dest_files=[ "res://.import/pedra cortado.wav-7fbbc68cc59cd25c70c1e56a9ce1ac29.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

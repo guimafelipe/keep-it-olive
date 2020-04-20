@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/agua cortado.wav-002a3821e864b4cf1d80a1d7f446f3aa.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/audios cortados/agua cortado.wav"
+dest_files=[ "res://.import/agua cortado.wav-002a3821e864b4cf1d80a1d7f446f3aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

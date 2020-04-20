@@ -68,6 +68,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		shoot_rock()
 	elif Input.is_action_pressed("water"):
+		if Input.is_action_just_pressed("water"):
+			print("oi")
+			$WaterAudio.play()
 		shoot_water()
 		pass
 		

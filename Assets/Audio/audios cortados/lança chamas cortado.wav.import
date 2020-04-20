@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lança chamas cortado.wav-f8f630282f67f4b29bf3fb05d68f5e5e.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/audios cortados/lança chamas cortado.wav"
+dest_files=[ "res://.import/lança chamas cortado.wav-f8f630282f67f4b29bf3fb05d68f5e5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

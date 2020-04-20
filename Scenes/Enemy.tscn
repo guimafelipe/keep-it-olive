@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Meshes/RedGlass.material" type="Material" id=2]
@@ -7,12 +7,14 @@
 [ext_resource path="res://Assets/Meshes/Orange.material" type="Material" id=5]
 [ext_resource path="res://Assets/Meshes/Yellow.material" type="Material" id=6]
 [ext_resource path="res://Assets/Meshes/Red.material" type="Material" id=7]
+[ext_resource path="res://Assets/Audio/audios cortados/pedra cortado.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/audios cortados/lança chamas cortado.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape" id=1]
 
 [sub_resource type="CapsuleMesh" id=2]
 
-[sub_resource type="ArrayMesh" id=5]
+[sub_resource type="ArrayMesh" id=3]
 resource_name = "Cone.001"
 surfaces/0 = {
 "aabb": AABB( -1.02392, -1, -1, 2.04797, 4.04139, 2.0242 ),
@@ -41,7 +43,7 @@ surfaces/1 = {
 "vertex_count": 9
 }
 
-[sub_resource type="ArrayMesh" id=6]
+[sub_resource type="ArrayMesh" id=4]
 resource_name = "Cone.002"
 surfaces/0 = {
 "aabb": AABB( 0.766572, -0.169639, -0.117879, 0.235759, 0.256271, 0.235759 ),
@@ -57,8 +59,7 @@ surfaces/0 = {
 "vertex_count": 28
 }
 
-[sub_resource type="ArrayMesh" id=3]
-resource_name = "Cone.004"
+[sub_resource type="ArrayMesh" id=5]
 surfaces/0 = {
 "aabb": AABB( -1.42582, 1.01394, -0.117879, 0.281987, 0.296836, 0.235759 ),
 "array_data": PoolByteArray( 76, 105, 146, 191, 196, 130, 138, 63, 54, 89, 186, 61, 122, 33, 0, 0, 82, 134, 154, 191, 165, 199, 167, 63, 177, 106, 241, 189, 122, 33, 0, 0, 82, 134, 154, 191, 165, 199, 167, 63, 195, 106, 241, 61, 122, 33, 0, 0, 82, 134, 154, 191, 165, 199, 167, 63, 177, 106, 241, 189, 5, 243, 130, 0, 60, 2, 168, 191, 240, 200, 129, 63, 53, 89, 186, 189, 5, 243, 130, 0, 34, 129, 182, 191, 175, 121, 156, 63, 182, 106, 241, 189, 5, 243, 130, 0, 60, 2, 168, 191, 240, 200, 129, 63, 53, 89, 186, 189, 145, 196, 0, 0, 34, 129, 182, 191, 175, 121, 156, 63, 190, 106, 241, 61, 145, 196, 0, 0, 34, 129, 182, 191, 175, 121, 156, 63, 182, 106, 241, 189, 145, 196, 0, 0, 60, 2, 168, 191, 239, 200, 129, 63, 49, 89, 186, 61, 5, 243, 126, 0, 82, 134, 154, 191, 165, 199, 167, 63, 195, 106, 241, 61, 5, 243, 126, 0, 34, 129, 182, 191, 175, 121, 156, 63, 190, 106, 241, 61, 5, 243, 126, 0, 34, 129, 182, 191, 175, 121, 156, 63, 182, 106, 241, 189, 209, 117, 0, 0, 82, 134, 154, 191, 165, 199, 167, 63, 195, 106, 241, 61, 209, 117, 0, 0, 82, 134, 154, 191, 165, 199, 167, 63, 177, 106, 241, 189, 209, 117, 0, 0, 76, 105, 146, 191, 197, 130, 138, 63, 48, 89, 186, 189, 47, 139, 0, 0, 60, 2, 168, 191, 239, 200, 129, 63, 49, 89, 186, 61, 47, 139, 0, 0, 60, 2, 168, 191, 240, 200, 129, 63, 53, 89, 186, 189, 47, 139, 0, 0, 76, 105, 146, 191, 197, 130, 138, 63, 48, 89, 186, 189, 122, 33, 0, 0, 82, 134, 154, 191, 165, 199, 167, 63, 177, 106, 241, 189, 5, 243, 130, 0, 76, 105, 146, 191, 197, 130, 138, 63, 48, 89, 186, 189, 5, 243, 130, 0, 60, 2, 168, 191, 240, 200, 129, 63, 53, 89, 186, 189, 5, 243, 130, 0, 60, 2, 168, 191, 239, 200, 129, 63, 49, 89, 186, 61, 145, 196, 0, 0, 60, 2, 168, 191, 239, 200, 129, 63, 49, 89, 186, 61, 5, 243, 126, 0, 76, 105, 146, 191, 196, 130, 138, 63, 54, 89, 186, 61, 5, 243, 126, 0, 82, 134, 154, 191, 165, 199, 167, 63, 195, 106, 241, 61, 5, 243, 126, 0, 34, 129, 182, 191, 175, 121, 156, 63, 190, 106, 241, 61, 209, 117, 0, 0, 76, 105, 146, 191, 197, 130, 138, 63, 48, 89, 186, 189, 47, 139, 0, 0, 76, 105, 146, 191, 196, 130, 138, 63, 54, 89, 186, 61, 47, 139, 0, 0, 60, 2, 168, 191, 239, 200, 129, 63, 49, 89, 186, 61, 47, 139, 0, 0 ),
@@ -86,7 +87,7 @@ surfaces/1 = {
 "vertex_count": 64
 }
 
-[sub_resource type="ArrayMesh" id=7]
+[sub_resource type="ArrayMesh" id=6]
 resource_name = "Icosphere.006"
 surfaces/0 = {
 "aabb": AABB( -0.497729, 4.0344e-08, -0.188313, 1.02107, 1.4065, 0.329331 ),
@@ -128,8 +129,7 @@ surfaces/2 = {
 "vertex_count": 227
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "default"
+[sub_resource type="Animation" id=7]
 length = 1.95833
 loop = true
 tracks/0/type = "transform"
@@ -181,30 +181,37 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -1.66705, 0 )
 
 [node name="Enemy" type="MeshInstance" parent="MeshHandler"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = null
 material/1 = null
 
 [node name="FTHand" type="MeshInstance" parent="MeshHandler/Enemy"]
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="OffHand" type="MeshInstance" parent="MeshHandler/Enemy"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 5 )
 material/0 = null
 material/1 = null
 
 [node name="Flame" type="MeshInstance" parent="MeshHandler/Enemy"]
 transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, -4.37114e-08, -1.49776, 2.05404, 0.937161 )
 visible = false
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 material/0 = null
 material/1 = null
 material/2 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeshHandler/Enemy"]
-anims/default = SubResource( 4 )
+anims/default = SubResource( 7 )
+
+[node name="FireAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
+area_mask = 3
+
+[node name="HitAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 [connection signal="timeout" from="FiringTimer" to="." method="_on_FiringTimer_timeout"]
 [connection signal="timeout" from="FleetingTimer" to="." method="_on_FleetingTimer_timeout"]

@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="GlobalAudioManager" type="Node"]
+
+[node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]

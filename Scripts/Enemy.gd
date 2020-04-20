@@ -2,7 +2,7 @@ extends Area
 
 var RockClass = preload("res://Scripts/Rock.gd")
 
-var tree
+var tree = null
 var min_dist_to_tree = 4
 
 var approach_speed = 3
@@ -37,19 +37,15 @@ func define_movement():
 	dir = tree.global_transform.origin - global_transform.origin
 	dir.y = 0
 	dir = dir.normalized()
-	
+	var tree_pos = tree.global_transform.origin
+	tree_pos.y = global_transform.origin.y
+	look_at(tree_pos, Vector3.UP)
+	rotate_y(PI)
 
 func init():
 	search_for_tree()
 	state = states.APPROACHING
 	$MeshHandler/Enemy/AnimationPlayer.play("default")
-	if not tree:
-		queue_free()
-	var tree_pos = tree.global_transform.origin
-	tree_pos.y = global_transform.origin.y
-	look_at(tree_pos, Vector3.UP)
-	rotate_y(PI)
-	#print("Nasci")
 
 # warning-ignore:shadowed_variable
 func get_dist_to_tree(tree):
@@ -65,6 +61,7 @@ func fleet():
 	rotate_y(PI)
 	$MeshHandler/Enemy/AnimationPlayer.set_speed_scale(3)
 	$MeshHandler/Enemy/Flame.hide()
+	$FireAudio.stop()
 
 func hit():
 	if state == states.FLEETING:
@@ -74,6 +71,7 @@ func hit():
 	tree.set_targeted(false)
 	# do hit animation
 	$FiringTimer.stop()
+	$HitAudio.play()
 	fleet()
 
 func _on_Enemy_body_entered(body):
@@ -88,8 +86,6 @@ func _physics_process(delta):
 	match state:
 		states.APPROACHING:
 			self.global_transform.origin += dir*approach_speed*delta
-			print(dir)
-			print(global_transform.origin)
 			if get_dist_to_tree(tree) <= min_dist_to_tree:
 				state = states.FIRING
 				# do firing animation
@@ -97,6 +93,7 @@ func _physics_process(delta):
 				tree.firing()
 				$FiringTimer.start()
 				$MeshHandler/Enemy/Flame.show()
+				$FireAudio.play()
 				
 		states.FIRING:
 			pass

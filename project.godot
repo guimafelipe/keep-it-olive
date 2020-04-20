@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GameData="*res://Scenes/GameData.tscn"
+GlobalAudioManager="*res://Scenes/GlobalAudioManager.tscn"
 
 [display]
 

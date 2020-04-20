@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/risada cortada.wav-716c96a3f9bf55c1655a48f6fb793106.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/audios cortados/risada cortada.wav"
+dest_files=[ "res://.import/risada cortada.wav-716c96a3f9bf55c1655a48f6fb793106.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
