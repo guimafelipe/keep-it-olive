@@ -27,7 +27,7 @@ func _on_SpawnTimer_timeout():
 	$SpawnTimer.start()
 
 func end_game():
-	pass
+	get_tree().change_scene("res://Scenes/Menu.tscn")
 
 func on_Tree_Died():
 	dead_trees += 1

@@ -52,6 +52,7 @@ func on_fire():
 func die():
 	state = states.DEAD
 	# change to dead tree mesh
+	emit_signal("exit_fire")
 	emit_signal("died")
 	change_color(Color(0, 0, 0))
 	$Tree.set_visible(false)

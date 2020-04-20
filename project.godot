@@ -16,12 +16,17 @@ _global_script_class_icons={
 [application]
 
 config/name="LD46"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GameData="*res://Scenes/GameData.tscn"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [input]
 
