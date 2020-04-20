@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Meshes/Orange.material" type="Material" id=5]
 [ext_resource path="res://Assets/Meshes/Yellow.material" type="Material" id=6]
 [ext_resource path="res://Assets/Meshes/Red.material" type="Material" id=7]
-[ext_resource path="res://Assets/Audio/audios cortados/pedra cortado.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/audios cortados/pedraaa.wav" type="AudioStream" id=8]
 [ext_resource path="res://Assets/Audio/audios cortados/lança chamas cortado.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape" id=1]

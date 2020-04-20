@@ -1,7 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Audio/musicas maruro/save the olives com sirene.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Audio/musicas maruro/menu opção 2 final.ogg" type="AudioStream" id=2]
 
 [node name="GlobalAudioManager" type="Node"]
 
 [node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -8.0
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -8.0

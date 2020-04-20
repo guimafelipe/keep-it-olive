@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/save the olives com sirene.ogg-66dac987f8dd6906de297fe9c3ec5bae.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/musicas maruro/save the olives com sirene.ogg"
+dest_files=[ "res://.import/save the olives com sirene.ogg-66dac987f8dd6906de297fe9c3ec5bae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

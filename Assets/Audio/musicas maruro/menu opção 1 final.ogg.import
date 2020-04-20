@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/menu opção 1 final.ogg-8da7b93f52ac28b4687c01b675d43600.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/musicas maruro/menu opção 1 final.ogg"
+dest_files=[ "res://.import/menu opção 1 final.ogg-8da7b93f52ac28b4687c01b675d43600.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

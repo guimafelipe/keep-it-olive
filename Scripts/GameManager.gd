@@ -27,6 +27,7 @@ func _on_SpawnTimer_timeout():
 	$SpawnTimer.start()
 
 func end_game():
+	GlobalAudioManager.get_node("BackgroudMusic").stop()
 	get_tree().change_scene("res://Scenes/Menu.tscn")
 
 func on_Tree_Died():
@@ -70,3 +71,4 @@ func _ready():
 	emit_signal("dead_trees", dead_trees, MAX_DEAD_TREES)
 	emit_signal("trees_on_fire", trees_on_fire)
 	emit_signal("updated_points", points, difficulty)
+	GlobalAudioManager.get_node("BackgroudMusic").play()

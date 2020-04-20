@@ -66,10 +66,10 @@ func _physics_process(delta):
 	#velocity = move_and_slide(velocity, Vector3.UP, true, 4, PI/8)
 	move_and_collide(velocity*delta)
 	if Input.is_action_just_pressed("shoot"):
+		$SwooshAudio.play()
 		shoot_rock()
 	elif Input.is_action_pressed("water"):
 		if Input.is_action_just_pressed("water"):
-			print("oi")
 			$WaterAudio.play()
 		shoot_water()
 		pass
