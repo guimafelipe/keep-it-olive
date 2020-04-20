@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Tree.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Meshes/Leaves.material" type="Material" id=2]
+[ext_resource path="res://Assets/Meshes/Leaves2.material" type="Material" id=2]
 [ext_resource path="res://Assets/Meshes/Trunk.material" type="Material" id=3]
 [ext_resource path="res://Assets/Meshes/Burnt.material" type="Material" id=4]
 [ext_resource path="res://Assets/Images/smoke.png" type="Texture" id=5]
@@ -152,8 +152,8 @@ shape = SubResource( 4 )
 [node name="Tree" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.27632, 0 )
 mesh = SubResource( 5 )
-material/0 = ExtResource( 3 )
-material/1 = ExtResource( 2 )
+material/0 = null
+material/1 = null
 
 [node name="BurntTree2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.27632, 0 )
