@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=2]
@@ -8,8 +8,18 @@
 [ext_resource path="res://Scenes/GameManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/MeshScenes/pine_tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/MeshScenes/grass.tscn" type="PackedScene" id=9]
 
 [sub_resource type="BoxShape" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+background_color = Color( 0.607843, 0.956863, 0.964706, 1 )
+ambient_light_color = Color( 0.607843, 0.956863, 0.964706, 1 )
+fog_enabled = true
+fog_color = Color( 0.501961, 0.501961, 0, 1 )
+adjustment_enabled = true
+adjustment_saturation = 0.86
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -818,3 +828,46 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3612, -2.86102e-06, 18.9529
 
 [node name="pine_tree210" parent="Pines" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2317, -2.86102e-06, 19.8519 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.69829, 0.379779, -0.60676, 0, 0.84765, 0.530556, 0.715815, -0.370482, 0.591906, 0, 8.04517, 0 )
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
+
+[node name="Grass" type="Spatial" parent="."]
+
+[node name="grass" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5022, 0, -3.76625 )
+
+[node name="grass2" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.558324, 0, -0.829623, 0, 1, 0, 0.829623, 0, 0.558324, -2.6922, 0, 6.55452 )
+
+[node name="grass3" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.903043, 0, 0.42955, 0, 1, 0, -0.42955, 0, 0.903043, -4.21144, 0, -9.19638 )
+
+[node name="grass4" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.637679, 0, 0.770302, 0, 1, 0, -0.770302, 0, 0.637679, 4.76237, 0, -18.3273 )
+
+[node name="grass5" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.976243, 0, -0.216678, 0, 1, 0, 0.216678, 0, 0.976243, -2.13202, 0, -14.5521 )
+
+[node name="grass6" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.976243, 0, -0.216678, 0, 1, 0, 0.216678, 0, 0.976243, -5.22348, 0, -20.3386 )
+
+[node name="grass7" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.468038, 0, -0.883708, 0, 1, 0, 0.883708, 0, 0.468038, -11.5404, 0, -10.4815 )
+
+[node name="grass8" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.983568, 0, -0.180536, 0, 1, 0, 0.180536, 0, 0.983568, -17.0869, 0, -2.13015 )
+
+[node name="grass9" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.950705, 0, -0.310096, 0, 1, 0, 0.310096, 0, 0.950705, -18.8657, 0, -17.0533 )
+
+[node name="grass10" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.708475, 0, -0.705736, 0, 1, 0, 0.705736, 0, 0.708475, 5.71316, 4.76837e-07, 16.2913 )
+
+[node name="grass11" parent="Grass" instance=ExtResource( 9 )]
+transform = Transform( 0.277449, 0, -0.96074, 0, 1, 0, 0.96074, 0, 0.277449, 18.0158, -1.43051e-06, 7.76265 )
