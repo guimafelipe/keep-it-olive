@@ -61,8 +61,12 @@ func fleet():
 	state = states.FLEETING
 	$FleetingTimer.start()
 	rotate_y(PI)
+	$MeshHandler/Enemy/AnimationPlayer.set_speed_scale(3)
+	$MeshHandler/Enemy/Flame.hide()
 
 func hit():
+	if state == states.FLEETING:
+		return
 	if state == states.FIRING:
 		tree.stop_firing()
 	tree.set_targeted(false)
@@ -90,7 +94,7 @@ func _physics_process(delta):
 				# do firing animation on tree
 				tree.firing()
 				$FiringTimer.start()
-				
+				$MeshHandler/Enemy/Flame.show()
 				
 		states.FIRING:
 			pass

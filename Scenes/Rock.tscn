@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Meshes/BlenderStone.material" type="Material" id=1]
 [ext_resource path="res://Scripts/Rock.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Meshes/Rock.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Scripts/RockParticles.gd" type="Script" id=4]
 
 [sub_resource type="SphereMesh" id=2]
 
@@ -59,4 +60,9 @@ angular_velocity_random = 1.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.5
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="RockParticles"]
+one_shot = true
 [connection signal="body_entered" from="." to="." method="_on_Rock_body_entered"]
+[connection signal="timeout" from="RockParticles/Timer" to="RockParticles" method="_on_Timer_timeout"]

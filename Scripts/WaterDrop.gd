@@ -21,6 +21,7 @@ func destroy():
 	particles.set_scale(Vector3(0.1,0.1,0.1))
 	particles.set_direction(-get_linear_velocity().normalized())
 	particles.set_emitting(true)
+	particles.get_node("Timer").start()
 	queue_free()
 
 func init(normal):
