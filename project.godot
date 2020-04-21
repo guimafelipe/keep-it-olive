@@ -15,8 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LD46"
+config/name="Keep it Olive"
 run/main_scene="res://Scenes/Menu.tscn"
+run/disable_stdout=true
 config/icon="res://Assets/Images/stone_cursor.png"
 
 [autoload]
