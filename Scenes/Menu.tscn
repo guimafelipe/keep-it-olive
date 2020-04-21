@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/MenuRender.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/TitleMenu.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Themes/theme.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/Fonts/BOOKOS.TTF" type="DynamicFontData" id=4]
 
@@ -51,12 +51,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 100.0
 margin_top = 50.0
-margin_right = 689.0
+margin_right = 633.0
 margin_bottom = 670.0
 size_flags_horizontal = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 margin_top = 184.0
 margin_right = 589.0
 margin_bottom = 298.0
@@ -64,9 +65,9 @@ custom_fonts/font = SubResource( 1 )
 text = "Keep it Olive!"
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 302.0
-margin_right = 589.0
-margin_bottom = 435.0
+margin_top = 243.0
+margin_right = 533.0
+margin_bottom = 376.0
 rect_min_size = Vector2( 533, 133 )
 custom_fonts/font = SubResource( 2 )
 text = "Play"

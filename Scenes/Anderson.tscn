@@ -20,6 +20,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.760395, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
+far = 200.0
 
 [node name="WaterAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 2 )
