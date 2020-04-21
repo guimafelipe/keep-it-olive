@@ -1,11 +1,11 @@
 extends Node
 
-const max_difficulty = 7
-const max_burnt_trees = 2
+const max_difficulty = 8
+const max_burnt_trees = 10
 
-const difficulty_map = [0.0, 20.0, 40.0, 60.0, 80.0, 120.0, 160.0, 180.0]
+const difficulty_map = [0.0, 16.0, 30.0, 45.0, 60.0, 85.0, 120.0, 150.0, 180.0]
 
-const interval_time = [10.0, 9.0, 8.0, 7.0, 6.0, 4.0, 2.0, 1.0]
+const interval_time = [8.0, 7.0, 6.0, 5.5, 5.0, 4.5, 3.5, 2.5, 1.5]
 
 const first_spawn_time = 4.0
 
